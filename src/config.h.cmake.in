@@ -7,81 +7,81 @@
 #undef ENABLE_RFC2553
 
 /* Your gnu-style host triple */
-#undef GNU_HOST
+#define GNU_HOST "x86_64-unknown-linux-gnu"
 
 /* Define to 1 if you have the <alloca.h> header file. */
-#undef HAVE_ALLOCA_H
+#cmakedefine HAVE_ALLOCA_H 1
 
 /* Define to 1 if you have the <arpa/nameser.h> header file. */
-#undef HAVE_ARPA_NAMESER_H
+#cmakedefine HAVE_ARPA_NAMESER_H 1
 
 /* Define to 1 if you have the `asprintf' function. */
-#undef HAVE_ASPRINTF
+#cmakedefine HAVE_ASPRINTF 1
 
 /* defined if Avahi is available */
-#undef HAVE_AVAHI
+#cmakedefine HAVE_AVAHI 1
 
 /* define if vsnprintf is C99 compliant */
-#undef HAVE_C99_VSNPRINTF
+#cmakedefine HAVE_C99_VSNPRINTF 1
 
 /* Define to 1 if you have the <ctype.h> header file. */
-#undef HAVE_CTYPE_H
+#cmakedefine HAVE_CTYPE_H 1
 
 /* Define to 1 if you have the declaration of `asprintf', and to 0 if you
    don't. */
-#undef HAVE_DECL_ASPRINTF
+#cmakedefine HAVE_DECL_ASPRINTF 1
 
 /* Define to 1 if you have the declaration of `snprintf', and to 0 if you
    don't. */
-#undef HAVE_DECL_SNPRINTF
+#cmakedefine HAVE_DECL_SNPRINTF 1
 
 /* Define to 1 if you have the declaration of `strndup', and to 0 if you
    don't. */
-#undef HAVE_DECL_STRNDUP
+#cmakedefine HAVE_DECL_STRNDUP 1
 
 /* Define to 1 if you have the declaration of `vasprintf', and to 0 if you
    don't. */
-#undef HAVE_DECL_VASPRINTF
+#cmakedefine HAVE_DECL_VASPRINTF 1
 
 /* Define to 1 if you have the declaration of `vsnprintf', and to 0 if you
    don't. */
-#undef HAVE_DECL_VSNPRINTF
+#cmakedefine HAVE_DECL_VSNPRINTF 1
 
 /* Define to 1 if you have the <elf.h> header file. */
-#undef HAVE_ELF_H
+#cmakedefine HAVE_ELF_H 1
 
 /* Define to 1 if you have the <float.h> header file. */
-#undef HAVE_FLOAT_H
+#cmakedefine HAVE_FLOAT_H 1
 
 /* Define to 1 if you have the `flock' function. */
-#undef HAVE_FLOCK
+#cmakedefine HAVE_FLOCK 1
 
 /* Define to 1 if you have the <fnmatch.h> header file. */
-#undef HAVE_FNMATCH_H
+#cmakedefine HAVE_FNMATCH_H 1
 
 /* Define to 1 if you have the `getaddrinfo' function. */
-#undef HAVE_GETADDRINFO
+#cmakedefine HAVE_GETADDRINFO 1
 
 /* Define to 1 if you have the `getcwd' function. */
-#cmakedefine HAVE_GETCWD
+#cmakedefine HAVE_GETCWD 1
 
 /* Define to 1 if you have the `geteuid' function. */
-#undef HAVE_GETEUID
+#cmakedefine HAVE_GETEUID 1
 
 /* Define to 1 if you have the `getline' function. */
-#undef HAVE_GETLINE
+#cmakedefine HAVE_GETLINE 1
 
 /* Define to 1 if you have the `getloadavg' function. */
-#undef HAVE_GETLOADAVG
+#cmakedefine HAVE_GETLOADAVG 1
 
 /* Define to 1 if you have the `getnameinfo' function. */
-#undef HAVE_GETNAMEINFO
+#cmakedefine HAVE_GETNAMEINFO 1
 
 /* Define to 1 if you have the `getpagesize' function. */
 #cmakedefine HAVE_GETPAGESIZE 1
 
 /* Define to 1 if you have the `getrusage' function. */
-#cmakedefine HAVE_GETRUSAGE
+#cmakedefine HAVE_GETRUSAGE 1
 
 /* Define to 1 if you have the `gettimeofday' function. */
 #cmakedefine HAVE_GETTIMEOFDAY 1
@@ -108,13 +108,13 @@
 #cmakedefine HAVE_INTTYPES_H 1
 
 /* Define to 1 if the system has the type `in_addr_t'. */
-#cmakedefine HAVE_IN_ADDR_T
+#cmakedefine HAVE_IN_ADDR_T 1
 
 /* Define to 1 if the system has the type `in_port_t'. */
-#cmakedefine HAVE_IN_PORT_T
+#cmakedefine HAVE_IN_PORT_T 1
 
 /* Define to 1 if you have the `lockf' function. */
-#cmakedefine HAVE_LOCKF
+#cmakedefine HAVE_LOCKF 1
 
 /* Define to 1 if you have the `mcheck' function. */
 #cmakedefine HAVE_MCHECK 1
@@ -129,112 +129,112 @@
 #cmakedefine HAVE_MKDTEMP 1
 
 /* Define to 1 if you have the `mmap' function. */
-#undef HAVE_MMAP
+#cmakedefine HAVE_MMAP 1
 
 /* Define to 1 if you have the <netinet/in.h> header file. */
-#undef HAVE_NETINET_IN_H
+#cmakedefine HAVE_NETINET_IN_H 1
 
 /* Define if you have POSIX threads libraries and header files. */
-#undef HAVE_PTHREAD
+#cmakedefine HAVE_PTHREAD 1
 
 /* Define to 1 if you have the <resolv.h> header file. */
-#undef HAVE_RESOLV_H
+#cmakedefine HAVE_RESOLV_H 1
 
 /* Define to 1 if you have the `sendfile' function. */
-#undef HAVE_SENDFILE
+#cmakedefine HAVE_SENDFILE 1
 
 /* Define to 1 if you have the `setgroups' function. */
-#undef HAVE_SETGROUPS
+#cmakedefine HAVE_SETGROUPS 1
 
 /* Define to 1 if you have the `setreuid' function. */
-#undef HAVE_SETREUID
+#cmakedefine HAVE_SETREUID 1
 
 /* Define to 1 if you have the `setsid' function. */
-#undef HAVE_SETSID
+#cmakedefine HAVE_SETSID 1
 
 /* Define to 1 if you have the `setuid' function. */
-#undef HAVE_SETUID
+#cmakedefine HAVE_SETUID 1
 
 /* Define to 1 if you have the `snprintf' function. */
-#undef HAVE_SNPRINTF
+#cmakedefine HAVE_SNPRINTF 1
 
 /* define if you have struct sockaddr_storage */
-#undef HAVE_SOCKADDR_STORAGE
+#cmakedefine HAVE_SOCKADDR_STORAGE 1
 
 /* define if you have a working socketpair */
-#undef HAVE_SOCKETPAIR
+#cmakedefine HAVE_SOCKETPAIR 1
 
 /* Define to 1 if you have the <stdint.h> header file. */
-#undef HAVE_STDINT_H
+#cmakedefine HAVE_STDINT_H 1
 
 /* Define to 1 if you have the <stdlib.h> header file. */
-#undef HAVE_STDLIB_H
+#cmakedefine HAVE_STDLIB_H 1
 
 /* Define to 1 if you have the `strerror' function. */
-#undef HAVE_STRERROR
+#cmakedefine HAVE_STRERROR 1
 
 /* Define to 1 if you have the <strings.h> header file. */
-#undef HAVE_STRINGS_H
+#cmakedefine HAVE_STRINGS_H 1
 
 /* Define to 1 if you have the <string.h> header file. */
-#undef HAVE_STRING_H
+#cmakedefine HAVE_STRING_H 1
 
 /* Define to 1 if you have the `strlcpy' function. */
-#undef HAVE_STRLCPY
+#cmakedefine HAVE_STRLCPY 1
 
 /* Define to 1 if you have the `strndup' function. */
-#undef HAVE_STRNDUP
+#cmakedefine HAVE_STRNDUP 1
 
 /* Define to 1 if you have the `strsep' function. */
 #cmakedefine HAVE_STRSEP
 
 /* Define to 1 if you have the `strsignal' function. */
-#undef HAVE_STRSIGNAL
+#cmakedefine HAVE_STRSIGNAL 1
 
 /* Define to 1 if you have the <sys/loadavg.h> header file. */
-#undef HAVE_SYS_LOADAVG_H
+#cmakedefine HAVE_SYS_LOADAVG_H 1
 
 /* Define to 1 if you have the <sys/mman.h> header file. */
-#undef HAVE_SYS_MMAN_H
+#cmakedefine HAVE_SYS_MMAN_H 1
 
 /* Define to 1 if you have the <sys/resource.h> header file. */
-#cmakedefine HAVE_SYS_RESOURCE_H
+#cmakedefine HAVE_SYS_RESOURCE_H 1
 
 /* Define to 1 if you have the <sys/select.h> header file. */
-#undef HAVE_SYS_SELECT_H
+#cmakedefine HAVE_SYS_SELECT_H 1
 
 /* Define to 1 if you have the <sys/sendfile.h> header file. */
-#undef HAVE_SYS_SENDFILE_H
+#cmakedefine HAVE_SYS_SENDFILE_H 1
 
 /* Define to 1 if you have the <sys/signal.h> header file. */
-#undef HAVE_SYS_SIGNAL_H
+#cmakedefine HAVE_SYS_SIGNAL_H 1
 
 /* Define to 1 if you have the <sys/socket.h> header file. */
-#undef HAVE_SYS_SOCKET_H
+#cmakedefine HAVE_SYS_SOCKET_H 1
 
 /* Define to 1 if you have the <sys/stat.h> header file. */
-#undef HAVE_SYS_STAT_H
+#cmakedefine HAVE_SYS_STAT_H 1
 
 /* Define to 1 if you have the <sys/types.h> header file. */
-#undef HAVE_SYS_TYPES_H
+#cmakedefine HAVE_SYS_TYPES_H 1
 
 /* Whether __va_copy() is available */
-#undef HAVE_UNDERSCORE_UNDERSCORE_VA_COPY
+#cmakedefine HAVE_UNDERSCORE_UNDERSCORE_VA_COPY 1
 
 /* Define to 1 if you have the <unistd.h> header file. */
-#undef HAVE_UNISTD_H
+#cmakedefine HAVE_UNISTD_H 1
 
 /* Define if your cpp has vararg macros */
-#undef HAVE_VARARG_MACROS
+#cmakedefine HAVE_VARARG_MACROS 1
 
 /* Define to 1 if you have the `vasprintf' function. */
-#undef HAVE_VASPRINTF
+#cmakedefine HAVE_VASPRINTF 1
 
 /* Whether va_copy() is available */
-#cmakedefine HAVE_VA_COPY
+#cmakedefine HAVE_VA_COPY 1
 
 /* Define to 1 if you have the `vsnprintf' function. */
-#undef HAVE_VSNPRINTF
+#cmakedefine HAVE_VSNPRINTF 1
 
 /* Define to 1 if you have the `wait3' function. */
 #cmakedefine HAVE_WAIT3 1
@@ -246,10 +246,10 @@
 #cmakedefine HAVE_WAITPID 1
 
 /* Define if MAP_FAILED constant not available */
-#undef MAP_FAILED
+#cmakedefine MAP_FAILED 1
 
 /* Define to the address where bug reports for this package should be sent. */
-#undef PACKAGE_BUGREPORT
+#define PACKAGE_BUGREPORT "distcc-pump@google.com"
 
 /* Define to the full name of this package. */
 #undef PACKAGE_NAME
@@ -264,23 +264,23 @@
 #undef PACKAGE_URL
 
 /* Define to the version of this package. */
-#undef PACKAGE_VERSION
+#define PACKAGE_VERSION "2.18.3-17gg-pump6"
 
 /* Define to necessary symbol if this constant uses a non-standard name on
    your system. */
 #undef PTHREAD_CREATE_JOINABLE
 
 /* Define as the return type of signal handlers (`int' or `void'). */
-#cmakedefine RETSIGTYPE
+#cmakedefine RETSIGTYPE ${RETSIGTYPE}
 
 /* Define to 1 if you have the ANSI C header files. */
-#undef STDC_HEADERS
+#cmakedefine STDC_HEADERS 1
 
 /* Use GNOME */
-#undef WITH_GNOME
+#cmakedefine WITH_GNOME 1
 
 /* Use GTK+ */
-#undef WITH_GTK
+#cmakedefine WITH_GTK 1
 
 /* Define WORDS_BIGENDIAN to 1 if your processor stores words with the most
    significant byte first (like Motorola and SPARC, unlike Intel). */
@@ -304,4 +304,6 @@
 
 /* type to use in place of socklen_t if not defined */
 #undef socklen_t
+
+#cmakedefine HAVE_POPT_H
 

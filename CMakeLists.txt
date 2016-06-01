@@ -30,6 +30,9 @@ INCLUDE (CheckForVaCopy)
 # see configure.ac L47
 check_type_exists("socklen_t"    SOCKLEN_T "sys/socket.h"     "")
 
+check_include_files(string.h             HAVE_STRING_H)
+check_include_files(stdlib.h             HAVE_STDLIB_H)
+
 # see configure.ac L273
 check_include_files(unistd.h             HAVE_UNISTD_H)
 check_include_files(sys/types.h          HAVE_SYS_TYPES_H)
@@ -69,8 +72,16 @@ check_library_exists(socket setsockopt "" HAVE_SOCKET)
 check_library_exists(resolv hstrerror "" HAVE_RESOLV)
 # see configure.ac L333
 check_library_exists(resolv inet_aton "" HAVE_RESOLV)
-# see configure.ac L336
+# see configure.ac L320
+check_library_exists(popt poptGetContext "" HAVE_POPT)
 check_include_files(popt.h HAVE_POPT_H)
+if(NOT HAVE_POPT_H  AND NOT HAVE_POPT)
+    #message(FATAL_ERROR "Missing popt")
+    include_directories(popt)
+
+    set(popt_SRC popt/findme.c  popt/popt.c  popt/poptconfig.c
+                 popt/popthelp.c popt/poptparse.c)
+endif()
 
 # see configure.ac L375
 check_function_exists("getpagesize" HAVE_GETPAGESIZE)
@@ -162,7 +173,7 @@ set(common_obj
 project(distcc)
 
 # see Makefile.in L246
-add_executable(${PROJECT_NAME}
+add_executable(${PROJECT_NAME} src/backoff.c
 	src/climasq.c src/clinet.c src/clirpc.c
 	src/compile.c src/cpp.c
 	src/distcc.c
@@ -175,6 +186,25 @@ add_executable(${PROJECT_NAME}
 	${AUTH_DISTCC_OBJS}
 	src/emaillog.c
 	${common_obj}
+    )
+
+# see Makefile.in L260
+project(distccd)
+
+add_definitions(-DHAVE_CONFIG_H)
+
+add_executable(${PROJECT_NAME} src/access.c
+	src/daemon.c  src/dopt.c src/dparent.c src/dsignal.c
+	src/ncpus.c
+	src/prefork.c
+	src/stringmap.c
+	src/serve.c src/setuid.c src/srvnet.c src/srvrpc.c src/state.c
+	src/stats.c
+	src/fix_debug_info.c
+	${ZEROCONF_DISTCC_OBJS}
+	${AUTH_DISTCC_OBJS}
+	src/emaillog.c
+	${common_obj} ${popt_SRC}
     )
 
 #project(distccd)
