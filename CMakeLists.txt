@@ -144,6 +144,22 @@ CHECK_FOR_GNU_C_VARARGS(HAVE_GNU_C_VARARG_MACROS)
 # see configure.ac L414
 CHECK_FOR_VA_COPY(HAVE_VA_COPY)
 
+# new
+check_include_files(sys/time.h       HAVE_SYS_TIME_H)
+check_include_files(sys/file.h       HAVE_SYS_FILE_H)
+check_function_exists("GetProcessId" HAVE_GETPROCESSID)
+check_include_files(windows.h        HAVE_WINDOWS_H)
+#check_include_files(winbase.h        HAVE_WINBASE_H)
+check_type_exists("pid_t"    PID_T "sys/wait.h"     "")
+check_type_exists("DWORD"    DWORD_T "windows.h"     "")
+check_type_exists("ssize_t"    SSIZE_T "stdio.h"     "")
+check_function_exists("access" HAVE_ACCESS)
+check_include_files(io.h        HAVE_IO_H)
+check_include_files(sys/poll.h       HAVE_SYS_POLL_H)
+check_include_files(netinet/tcp.h         HAVE_NETINET_TCP_H)
+check_include_files(netdb.h         HAVE_NETDB_H)
+check_function_exists("poll" HAVE_POLL)
+
 add_definitions(-DSYSCONFDIR="/usr/local/etc")
 
 CONFIGURE_FILE(${CMAKE_CURRENT_SOURCE_DIR}/src/config.h.cmake.in ${CMAKE_CURRENT_BINARY_DIR}/src/config.h)
