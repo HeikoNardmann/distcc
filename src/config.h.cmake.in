@@ -9,6 +9,32 @@
 /* Your gnu-style host triple */
 #define GNU_HOST "x86_64-unknown-linux-gnu"
 
+/* Define to 1 if you have the <windows.h> header file. */
+#cmakedefine HAVE_WINDOWS_H 1
+/* Define to 1 if you have the <winbase.h> header file. */
+#cmakedefine HAVE_WINBASE_H 1
+
+/* Define to 1 if the system has the type `DWORD'. */
+#cmakedefine HAVE_DWORD 1
+
+/* Define to 1 if the system has the type `ssize_t'. */
+#cmakedefine HAVE_SSIZE_T 1
+
+/* Define to 1 if you have the `GetProcessId' function. */
+#cmakedefine HAVE_GETPROCESSID 1
+
+/* Define to 1 if you have the `access' function. */
+#cmakedefine HAVE_ACCESS 1
+#ifdef HAVE_ACCESS
+#define R_OK 4
+#define W_OK 2
+#define X_OK 1
+#define F_OK 0
+#endif
+
+/* Define to 1 if you have the <io.h> header file. */
+#cmakedefine HAVE_IO_H 1
+
 /* Define to 1 if you have the <alloca.h> header file. */
 #cmakedefine HAVE_ALLOCA_H 1
 
@@ -194,6 +220,15 @@
 /* Define to 1 if you have the <sys/loadavg.h> header file. */
 #cmakedefine HAVE_SYS_LOADAVG_H 1
 
+/* Define to 1 if you have the <netinet/tcp.h> header file. */
+#cmakedefine HAVE_NETINET_TCP_H 1
+
+/* Define to 1 if you have the <netdb.h> header file. */
+#cmakedefine HAVE_NETDB_H
+
+/* Define to 1 if you have the <sys/poll.h> header file. */
+#cmakedefine HAVE_SYS_POLL_H 1
+
 /* Define to 1 if you have the <sys/mman.h> header file. */
 #cmakedefine HAVE_SYS_MMAN_H 1
 
@@ -205,6 +240,12 @@
 
 /* Define to 1 if you have the <sys/sendfile.h> header file. */
 #cmakedefine HAVE_SYS_SENDFILE_H 1
+
+/* Define to 1 if you have the <sys/file.h> header file. */
+#cmakedefine HAVE_SYS_FILE_H 1
+
+/* Define to 1 if you have the <sys/time.h> header file. */
+#cmakedefine HAVE_SYS_TIME_H 1
 
 /* Define to 1 if you have the <sys/signal.h> header file. */
 #cmakedefine HAVE_SYS_SIGNAL_H 1
@@ -230,6 +271,9 @@
 /* Define to 1 if you have the `vasprintf' function. */
 #cmakedefine HAVE_VASPRINTF 1
 
+/* Define to 1 if you have the `poll' function. */
+#cmakedefine HAVE_POLL 1
+
 /* Whether va_copy() is available */
 #cmakedefine HAVE_VA_COPY 1
 
@@ -241,6 +285,9 @@
 
 /* Define to 1 if you have the `wait4' function. */
 #cmakedefine HAVE_WAIT4 1
+
+/* Define to 1 if the system has the type `pid_t'. */
+#cmakedefine HAVE_PID_T 1
 
 /* Define to 1 if you have the `waitpid' function. */
 #cmakedefine HAVE_WAITPID 1
