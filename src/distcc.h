@@ -23,8 +23,12 @@
 
 /* distcc.h -- common internal-use header file */
 
+#ifdef HAVE_SYS_TYPES_H
 #include <sys/types.h>
+#endif
+#ifdef HAVE_SYS_TIME_H
 #include <sys/time.h>     /* for struct timeval */
+#endif
 
 
 #ifdef NORETURN
@@ -143,10 +147,18 @@ int dcc_parse_hosts(const char *where, const char *source_name,
 int dcc_ncpus(int *);
 
 /* ssh.c */
+#ifdef HAVE_PID_T
 int dcc_ssh_connect(char *ssh_cmd, char *user,
                     char *machine, char *path,
                     int *f_in, int *f_out,
                     pid_t *ssh_pid);
+#else
+int dcc_ssh_connect(char *ssh_cmd, char *user,
+                    char *machine, char *path,
+                    int *f_in, int *f_out,
+                    DWORD *ssh_pid);
+#endif
+
 
 /* safeguard.c */
 int dcc_increment_safeguard(void);
@@ -167,6 +179,7 @@ int dcc_read_link(const char* fname, char *points_to);
 int dcc_r_cwd(int ifd, char **cwd);
 
 /* remote.c */
+#ifdef HAVE_PID_T
 int dcc_send_job_corked(int net_fd,
             char **argv,
             pid_t cpp_pid,
@@ -174,6 +187,15 @@ int dcc_send_job_corked(int net_fd,
                         const char *,
             const char *cpp_fname,
                         struct dcc_hostdef *);
+#else
+int dcc_send_job_corked(int net_fd,
+            char **argv,
+            DWORD cpp_pid,
+                        int *status,
+                        const char *,
+            const char *cpp_fname,
+                        struct dcc_hostdef *);
+#endif
 
 int dcc_retrieve_results(int net_fd,
                          int *status,
@@ -292,8 +314,13 @@ int dcc_strip_local_args(char **from, char ***out_argv);
 int dcc_strip_dasho(char **from, char ***out_argv);
 
 /* cpp.c */
+#ifdef HAVE_PID_T
 int dcc_cpp_maybe(char **argv, char *input_fname, char **cpp_fname,
           pid_t *cpp_pid);
+#else
+int dcc_cpp_maybe(char **argv, char *input_fname, char **cpp_fname,
+          DWORD *cpp_pid);
+#endif
 
 /* filename.c */
 int dcc_is_source(const char *sfile);

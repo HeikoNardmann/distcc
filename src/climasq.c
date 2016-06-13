@@ -33,9 +33,18 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#ifdef HAVE_UNISTD_H
 #include <unistd.h>
+#endif
+#ifdef HAVE_IO_H
+#include <io.h>
+#endif
 #include <string.h>
 #include <errno.h>
+
+#ifdef HAVE_WINDOWS_H
+#include <windows.h>
+#endif
 
 #include "distcc.h"
 #include "util.h"
@@ -62,7 +71,9 @@ int dcc_support_masquerade(char *argv[], char *progname, int *did_masquerade)
     size_t len;
     size_t findlen;
 
+#pragma warning(disable:4996)
     if (!(envpath = getenv("PATH")))
+#pragma warning(default:4996)
         /* strange but true*/
         return 0;
 
@@ -107,8 +118,12 @@ int dcc_support_masquerade(char *argv[], char *progname, int *did_masquerade)
              * happens to be of the right name, e.g. /usr/bin/distcc... */
             strncpy(buf, p, (size_t) len);
             sprintf(buf + len, "/%s", progname);
+#ifdef HAVE_ACCESS
             if (access(buf, X_OK) != 0)
                 continue;
+#else
+#error missing access()
+#endif
         }
         /* Set p to the part of the path past our match. */
         p = n;

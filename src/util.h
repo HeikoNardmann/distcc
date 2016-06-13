@@ -25,6 +25,10 @@
 #include <stdio.h>
 #include <time.h>
 
+#ifndef HAVE_SSIZE_T
+typedef long ssize_t;
+#endif
+
 /* util.c */
 int dcc_timecmp(struct timeval a, struct timeval b);
 int dcc_getcurrentload(void);
@@ -59,5 +63,6 @@ size_t strlcpy(char *d, const char *s, size_t bufsize);
 int dcc_tokenize_string(const char *in, char ***argv_ptr);
 
 #ifndef HAVE_GETLINE
+
 ssize_t getline(char **lineptr, size_t *n, FILE *stream);
 #endif

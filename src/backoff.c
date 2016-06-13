@@ -31,14 +31,22 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#ifdef HAVE_UNISTD_H
 #include <unistd.h>
+#endif
 #include <string.h>
 #include <fcntl.h>
 #include <errno.h>
 #include <time.h>
 
 #include <sys/stat.h>
+#ifdef HAVE_SYS_FILE_H
 #include <sys/file.h>
+#endif
+
+#ifdef HAVE_WINDOWS_H
+#include <windows.h>
+#endif
 
 #include "distcc.h"
 #include "trace.h"
@@ -64,7 +72,9 @@ int dcc_enjoyed_host(const struct dcc_hostdef *host)
     char *bp;
 
     /* special-case: if DISTCC_BACKOFF_PERIOD==0, don't manage backoff files */
+#pragma warning(disable:4996)
     bp = getenv("DISTCC_BACKOFF_PERIOD");
+#pragma warning(default:4996)
     if (bp && (atoi(bp) == 0))
 	return 0;
 
@@ -76,7 +86,9 @@ int dcc_disliked_host(const struct dcc_hostdef *host)
     char *bp;
 
     /* special-case: if DISTCC_BACKOFF_PERIOD==0, don't manage backoff files */
+#pragma warning(disable:4996)
     bp = getenv("DISTCC_BACKOFF_PERIOD");
+#pragma warning(default:4996)
     if (bp && (atoi(bp) == 0))
 	return 0;
 
@@ -110,7 +122,9 @@ int dcc_remove_disliked(struct dcc_hostdef **hostlist)
     struct dcc_hostdef *h;
     char *bp;
 
+#pragma warning(disable:4996)
     bp = getenv("DISTCC_BACKOFF_PERIOD");
+#pragma warning(default:4996)
     if (bp)
 	dcc_backoff_period = atoi(bp);
 

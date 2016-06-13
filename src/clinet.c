@@ -31,21 +31,37 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#ifdef HAVE_UNISTD_H
 #include <unistd.h>
+#endif
 #include <string.h>
 #include <fcntl.h>
 #include <errno.h>
 #include <signal.h>
 
+#ifdef HAVE_SYS_POLL_H
 #include <sys/poll.h>
+#endif
 #include <sys/stat.h>
 #include <sys/types.h>
+#ifdef HAVE_SYS_SOCKET_H
 #include <sys/socket.h>
+#endif
 
+#ifdef HAVE_NETINET_IN_H
 #include <netinet/in.h>
+#endif
+#ifdef HAVE_NETINET_TCP_H
 #include <netinet/tcp.h>
+#endif
 
+#ifdef HAVE_NETDB_H
 #include <netdb.h>
+#endif
+
+#ifdef HAVE_WINDOWS_H
+#include <windows.h>
+#endif
 
 #include "types.h"
 #include "distcc.h"
@@ -105,11 +121,15 @@ int dcc_connect_by_addr(struct sockaddr *sa, size_t salen,
     dcc_set_nonblocking(fd);
 
     /* start the nonblocking connect... */
+#ifdef HAVE_POLL
     do
         failed = connect(fd, sa, salen);
     while (failed == -1 &&
            (errno == EINTR ||
             (errno == EAGAIN && tries-- && poll(NULL, 0, 500) == 0)));
+#else
+#error missing poll()
+#endif
 
    if (failed == -1 && errno != EINPROGRESS) {
        rs_log(RS_LOG_ERR|RS_LOG_NONAME,
